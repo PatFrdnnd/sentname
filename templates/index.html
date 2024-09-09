@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spell Your Name with Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .name-images img {
+            width: 50px; /* Adjust size of each letter's image */
+            height: 50px;
+        }
+        .name-images {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Spell Your Name with Images</h1>
+    <form method="POST">
+        <input type="text" name="name" placeholder="Enter your name" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if images %}
+        <div class="name-images">
+            <h2>Here’s your name:</h2>
+            {% for img in images %}
+                <img src="{{ img }}" alt="Letter">
+            {% endfor %}
+        </div>
+    {% endif %}
+</body>
+</html>

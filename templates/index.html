@@ -11,29 +11,23 @@
             margin: 0;
             padding: 0;
             height: 100vh;
-            background-image: url("/static/images/background.png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Centering the form */
-        form {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            justify-content: space-between;  /* Aligns elements top to bottom */
+        }
+
+        /* Style the form */
+        form {
+            margin-top: 50px;
         }
 
         /* Style for the input box */
         input[type="text"] {
-            width: 50%; /* Adjust this percentage for the desired width */
-            padding: 15px; /* Increase padding to make the input larger */
-            font-size: 24px; /* Make the text inside the box larger */
+            width: 50%;
+            padding: 15px;
+            font-size: 24px;
             border: 2px solid #ccc;
-            border-radius: 10px; /* Adds rounded corners */
+            border-radius: 10px;
             margin-bottom: 20px;
         }
 
@@ -48,15 +42,29 @@
             cursor: pointer;
         }
 
-        /* Style for the images after submission */
+        /* Style the images after submission */
         .name-images img {
-            width: 150px; /* Adjust the size of each letter's image */
-            height: 150px;
+            width: 80px;
+            height: 160px;
         }
 
         .name-images {
             margin-top: 20px;
         }
+
+        /* Style for the banner at the bottom */
+        .banner {
+            width: 100%;
+            height: auto;
+            max-height: 150px; /* Limit the height of the banner */
+        }
+
+        /* Container for the banner to stick to the bottom */
+        .banner-container {
+            width: 100%;
+            position: relative;
+        }
+
     </style>
 </head>
 <body>
@@ -82,8 +90,9 @@
 
     <!-- Banner at the bottom -->
     <div class="banner-container">
-        <img src="/static/images/background.jpg" alt="Banner" class="banner">
+        <img src="/static/images/background.png" alt="Banner" class="banner">
     </div>
 
 </body>
 </html>
+

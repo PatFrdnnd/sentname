@@ -41,7 +41,7 @@
         button {
             padding: 15px 30px;
             font-size: 24px;
-            background-color: #007bff;
+            background-color: #0B6623;
             color: white;
             border: none;
             border-radius: 10px;
@@ -50,8 +50,8 @@
 
         /* Style for the images after submission */
         .name-images img {
-            width: 50px; /* Adjust the size of each letter's image */
-            height: 50px;
+            width: 150px; /* Adjust the size of each letter's image */
+            height: 150px;
         }
 
         .name-images {
@@ -61,7 +61,7 @@
 </head>
 <body>
 
-    <!-- Heading and form in the center -->
+    <!-- Main content -->
     <div>
         <h1>Spell Your Name with Images</h1>
         <form method="POST">
@@ -70,6 +70,7 @@
         </form>
     </div>
 
+    <!-- If images are submitted, display them -->
     {% if images %}
         <div class="name-images">
             <h2>Here’s your name:</h2>
@@ -78,5 +79,11 @@
             {% endfor %}
         </div>
     {% endif %}
+
+    <!-- Banner at the bottom -->
+    <div class="banner-container">
+        <img src="/static/images/background.jpg" alt="Banner" class="banner">
+    </div>
+
 </body>
 </html>

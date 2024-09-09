@@ -8,23 +8,67 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin-top: 50px;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url("/static/images/background.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
+        /* Centering the form */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Style for the input box */
+        input[type="text"] {
+            width: 50%; /* Adjust this percentage for the desired width */
+            padding: 15px; /* Increase padding to make the input larger */
+            font-size: 24px; /* Make the text inside the box larger */
+            border: 2px solid #ccc;
+            border-radius: 10px; /* Adds rounded corners */
+            margin-bottom: 20px;
+        }
+
+        /* Style for the submit button */
+        button {
+            padding: 15px 30px;
+            font-size: 24px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* Style for the images after submission */
         .name-images img {
-            width: 50px; /* Adjust size of each letter's image */
+            width: 50px; /* Adjust the size of each letter's image */
             height: 50px;
         }
+
         .name-images {
             margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Spell Your Name with Images</h1>
-    <form method="POST">
-        <input type="text" name="name" placeholder="Enter your name" required>
-        <button type="submit">Submit</button>
-    </form>
+
+    <!-- Heading and form in the center -->
+    <div>
+        <h1>Spell Your Name with Images</h1>
+        <form method="POST">
+            <input type="text" name="name" placeholder="Enter your name" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
     {% if images %}
         <div class="name-images">

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spell Your Name with Aerial Images</title>
+    <title>Spell Your Name with Satellite Images</title>
     <style>
         * {
             margin: 0;
@@ -12,40 +12,38 @@
         }
 
         html, body {
-            font-family: Arial, sans-serif;
-            width: 100%;
             height: 100%;
-            overflow-x: hidden; /* Prevents horizontal scrolling */
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-            justify-content: center; /* Centers everything vertically and horizontally */
+            font-family: Arial, sans-serif;
+            text-align: center;
         }
 
-        /* Center the form and title */
+        /* Centering content */
         .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
             margin-bottom: 2rem;
         }
 
-        /* Centering the headline and text box horizontally */
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
         input[type="text"] {
             width: 80vw; /* 80% of viewport width */
-            max-width: 400px; /* Limit the size */
-            padding: 1.5rem;
-            font-size: 2rem;
+            max-width: 500px; /* Max size for large screens */
+            padding: 1rem;
+            font-size: 1.5rem;
             border: 2px solid #ccc;
             border-radius: 10px;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
-        /* Responsive button */
         button {
             padding: 1rem 2rem;
-            font-size: 2rem;
+            font-size: 1.5rem;
             background-color: #0B6623;
             color: white;
             border: none;
@@ -53,39 +51,39 @@
             cursor: pointer;
         }
 
-        /* Flex container for images */
+        /* Image container to keep images in one row */
         .name-images {
             display: flex;
-            flex-wrap: nowrap; /* Prevent images from wrapping into multiple rows */
-            justify-content: center; /* Center images horizontally */
+            justify-content: center;
+            align-items: center;
             gap: 10px;
+            flex-wrap: nowrap; /* Prevent wrapping to a new line */
+            overflow-x: auto; /* Allow horizontal scrolling if needed */
             width: 100%;
-            max-width: 100%;
-            overflow: hidden;
+            max-width: 100vw; /* Ensure images fit within the viewport width */
         }
 
-        /* Image styling */
         .name-images img {
-            flex-shrink: 1; /* Allow images to shrink if necessary */
-            width: 10vw; /* Each image takes 10% of the viewport width */
-            height: auto;
+            width: 10vw; /* Width is 10% of viewport width */
+            height: auto; /* Maintain aspect ratio */
+            flex-shrink: 1; /* Allow images to shrink */
             border: 3px solid black;
-            border-radius: 3px;
+            border-radius: 5px;
         }
 
-        /* Banner fixes */
+        /* Banner style */
         .banner-container {
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 2vh 0;
+            padding: 1rem 0;
         }
 
         .banner {
             width: 100%;
             height: auto;
-            max-height: 100px; /* Set a max height for the banner */
+            max-height: 100px; /* Set max height */
             object-fit: contain;
         }
     </style>
@@ -104,7 +102,6 @@
     <!-- If images are submitted, display them -->
     {% if images %}
         <div class="name-images">
-            <h2>Here is your name from above:</h2>
             {% for img in images %}
                 <img src="{{ img }}" alt="Letter">
             {% endfor %}

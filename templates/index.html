@@ -34,17 +34,19 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            width: 100%;
         }
 
         input[type="text"] {
-            width: 80%;
+            width: 50%;
             max-width: 400px;
             padding: 15px;
             font-size: 1.5rem;
             border: 2px solid #ccc;
             border-radius: 10px;
             text-align: center;
+            margin-bottom: 10px;
         }
 
         button {
@@ -62,17 +64,20 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-wrap: nowrap;
             gap: 10px;
-            width: 100%;
-            overflow: hidden;
+            width: 80%;
+            max-width: 100vw;
+            overflow-x: auto;
+            white-space: nowrap;
             margin-top: 20px;
         }
 
         /* Image scaling */
         .name-images img {
-            flex-grow: 1;
-            max-width: 10vw; /* Adjust width dynamically */
-            height: auto;
+            width: auto;
+            height: 10vh;
+            max-height: 100px;
             border: 3px solid black;
             border-radius: 3px;
         }

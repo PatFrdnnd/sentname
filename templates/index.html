@@ -13,32 +13,39 @@
 
         html, body {
             font-family: Arial, sans-serif;
-            text-align: center;
             width: 100%;
-            height: 100vh;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            height: 100%;
+            overflow-x: hidden; /* Prevents horizontal scrolling */
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* Center all content vertically and horizontally */
-            padding: 0;
+            justify-content: center; /* Centers everything vertically and horizontally */
         }
 
-        /* Make form input box fully responsive */
+        /* Center the form and title */
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* Centering the headline and text box horizontally */
         input[type="text"] {
-            width: 80vw; /* Make it 80% of the viewport width */
-            max-width: 500px; /* Max size to prevent excessive expansion on large screens */
-            padding: 5vw; /* Responsive padding to adjust with viewport */
-            font-size: 2vw; /* Font size also responsive to the viewport */
+            width: 80vw; /* 80% of viewport width */
+            max-width: 400px; /* Limit the size */
+            padding: 1.5rem;
+            font-size: 2rem;
             border: 2px solid #ccc;
             border-radius: 10px;
-            margin-bottom: 5vh; /* Responsive margin for spacing */
+            margin-bottom: 2rem;
         }
 
         /* Responsive button */
         button {
-            padding: 3vw 6vw; /* Make the button size adjust to the viewport */
-            font-size: 2vw; /* Dynamic font size */
+            padding: 1rem 2rem;
+            font-size: 2rem;
             background-color: #0B6623;
             color: white;
             border: none;
@@ -46,25 +53,24 @@
             cursor: pointer;
         }
 
-        /* Image container that stretches and adjusts */
+        /* Flex container for images */
         .name-images {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap; /* Allow images to wrap on smaller screens */
-            gap: 2vw; /* Dynamic gap between images */
+            flex-wrap: nowrap; /* Prevent images from wrapping into multiple rows */
+            justify-content: center; /* Center images horizontally */
+            gap: 10px;
             width: 100%;
             max-width: 100%;
-            margin-top: 5vh; /* Margin from the form */
+            overflow: hidden;
         }
 
-        /* Responsive images, width is 100% of the container with auto height */
+        /* Image styling */
         .name-images img {
-            width: 10vw; /* Dynamic width based on viewport width */
-            height: auto; /* Maintain aspect ratio */
+            flex-shrink: 1; /* Allow images to shrink if necessary */
+            width: 10vw; /* Each image takes 10% of the viewport width */
+            height: auto;
             border: 3px solid black;
             border-radius: 3px;
-            max-width: 100%; /* Ensure images do not exceed container */
-            flex-shrink: 0; /* Prevent images from shrinking too much */
         }
 
         /* Banner fixes */
@@ -73,13 +79,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
             padding: 2vh 0;
         }
 
         .banner {
             width: 100%;
-            max-height: 100px; /* Fixed height for banner */
+            height: auto;
+            max-height: 100px; /* Set a max height for the banner */
             object-fit: contain;
         }
     </style>
@@ -87,7 +93,7 @@
 <body>
 
     <!-- Main content -->
-    <div>
+    <div class="content">
         <h1>Spell Your Name with Satellite Images</h1>
         <form method="POST">
             <input type="text" name="name" placeholder="Enter your name" required>

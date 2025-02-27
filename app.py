@@ -20,7 +20,8 @@ Talisman(app, content_security_policy=csp)
 # Function to get standard images for a letter
 def get_images_for_letter(letter):
     image_folder = "./static/images"
-    images = [f for f in os.listdir(image_folder) if f.startswith(letter) and f.endswith('_ortho.png')]
+    images = [f for f in os.listdir(image_folder) if f.startswith(letter) and f.lower().endswith('_ortho.png')]
+
     return images
 
 # Function to get AI-generated images for a letter

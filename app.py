@@ -10,8 +10,12 @@ from flask import Flask, render_template, request
 from flask_talisman import Talisman
 
 app = Flask(__name__)
-Talisman(app, content_security_policy=None)
 
+csp = {
+    'default-src': "'self'",
+    'style-src': "'self' 'unsafe-inline'"
+}
+Talisman(app, content_security_policy=csp)
 
 # Function to get all image files for a given letter
 def get_images_for_letter(letter):

@@ -13,7 +13,9 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 20px;
         }
 
         /* Make form input box responsive */
@@ -38,35 +40,40 @@
             cursor: pointer;
         }
 
+        /* Responsive image container */
+        .name-images {
+            display: flex;
+            flex-wrap: wrap; /* Ensures images stay within the container */
+            justify-content: center; /* Centers images properly */
+            gap: 10px; /* Adds space between images */
+            max-width: 90%; /* Prevents excessive expansion */
+            margin: 0 auto; /* Centers the container */
+        }
+
         /* Responsive name images */
         .name-images img {
-            width: 10vw; /* Responsive width based on viewport */
-            max-width: 120px; /* Caps image size on large screens */
+            width: clamp(80px, 10vw, 120px); /* Ensures images scale but stay within limits */
             height: auto;
             border: 3px solid black;
             border-radius: 3px;
-            margin: 10px;
         }
 
         /* Banner fixes */
-        .banner {
-            width: 100%;  /* Makes sure it always fills width */
-            max-height: 150px;
-            object-fit: cover;
-        }
-
-        /* Ensure banner sticks to the bottom */
         .banner-container {
             width: 100%;
-            height: auto;  /* Adjusts height dynamically */
-            position: relative;
+            max-height: 150px; /* Prevent excessive height */
             display: flex;
             justify-content: center;
-            align-items: flex-end;
+            align-items: center;
+            overflow: hidden; /* Ensures no overflow */
         }
 
-
-
+        .banner {
+            width: 100%;
+            height: auto;
+            max-height: 100%;
+            object-fit: contain; /* Ensures proper scaling */
+        }
     </style>
 </head>
 <body>
@@ -97,4 +104,3 @@
 
 </body>
 </html>
-

@@ -7,8 +7,10 @@ Created on Mon Sep  9 14:18:09 2024
 import os
 import random
 from flask import Flask, render_template, request
+from flask_talisman import Talisman
 
 app = Flask(__name__)
+Talisman(app)
 
 # Function to get all image files for a given letter
 def get_images_for_letter(letter):

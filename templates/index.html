@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spell Your Name with Satellite Images</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
+        * {
             margin: 0;
             padding: 0;
-            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden; /* Prevents horizontal scrolling */
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            gap: 20px;
+            justify-content: space-between;
         }
 
         /* Make form input box responsive */
@@ -43,16 +48,17 @@
         /* Responsive image container */
         .name-images {
             display: flex;
-            flex-wrap: wrap; /* Ensures images stay within the container */
-            justify-content: center; /* Centers images properly */
-            gap: 10px; /* Adds space between images */
-            max-width: 90%; /* Prevents excessive expansion */
-            margin: 0 auto; /* Centers the container */
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 90vw;
+            margin: 0 auto;
         }
 
         /* Responsive name images */
         .name-images img {
-            width: clamp(80px, 10vw, 120px); /* Ensures images scale but stay within limits */
+            width: clamp(50px, 8vw, 100px); /* Ensures images scale but stay within limits */
             height: auto;
             border: 3px solid black;
             border-radius: 3px;
@@ -61,18 +67,18 @@
         /* Banner fixes */
         .banner-container {
             width: 100%;
-            max-height: 150px; /* Prevent excessive height */
+            max-height: 100px; /* Prevent excessive height */
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden; /* Ensures no overflow */
+            overflow: hidden;
         }
 
         .banner {
             width: 100%;
             height: auto;
-            max-height: 100%;
-            object-fit: contain; /* Ensures proper scaling */
+            max-height: 100px;
+            object-fit: contain;
         }
     </style>
 </head>

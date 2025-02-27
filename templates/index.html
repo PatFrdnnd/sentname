@@ -21,15 +21,23 @@
             text-align: center;
         }
 
-        /* Centering content */
+        /* Main content container */
         .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
             margin-bottom: 2rem;
         }
 
         h1 {
             font-size: 2rem;
-            margin-bottom: 1rem;
-            fley: 0 0 120px;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         input[type="text"] {
@@ -39,7 +47,6 @@
             font-size: 1.5rem;
             border: 2px solid #ccc;
             border-radius: 10px;
-            margin-bottom: 1rem;
         }
 
         button {
@@ -50,9 +57,10 @@
             border: none;
             border-radius: 10px;
             cursor: pointer;
+            margin-left: 1rem;
         }
 
-        /* Image container to keep images in one row */
+        /* Image container to ensure images are in one row */
         .name-images {
             display: flex;
             justify-content: center;
@@ -65,28 +73,12 @@
         }
 
         .name-images img {
-            width: 10vw; /* Width is 10% of viewport width */
             height: auto; /* Maintain aspect ratio */
-            flex-shrink: 1; /* Allow images to shrink */
+            max-width: 10vw; /* Limit image size to 10% of viewport width */
             border: 3px solid black;
             border-radius: 5px;
         }
 
-        /* Banner style */
-        .banner-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .banner {
-            width: 100%;
-            height: auto;
-            max-height: 100px; /* Set max height */
-            object-fit: contain;
-        }
     </style>
 </head>
 <body>
@@ -108,11 +100,6 @@
             {% endfor %}
         </div>
     {% endif %}
-
-    <!-- Banner at the bottom -->
-    <div class="banner-container">
-        <img src="/static/images/banner.png" alt="Banner" class="banner">
-    </div>
 
 </body>
 </html>

@@ -15,12 +15,13 @@
             font-family: Arial, sans-serif;
             text-align: center;
             width: 100%;
-            height: 100vh;
+            height: 100%;
             overflow-x: hidden; /* Prevents horizontal scrolling */
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* Adjusted for vertical centering */
+            justify-content: center; /* Ensures everything is vertically centered */
+            padding: 0 20px; /* Add padding to prevent text from touching the edges */
         }
 
         /* Make form input box responsive */
@@ -52,8 +53,9 @@
             justify-content: center;
             gap: 10px;
             width: 100%;
-            max-width: 100%; /* Full width */
+            overflow-x: hidden; /* Ensure no horizontal scrolling */
             margin: 20px 0;
+            flex-grow: 1; /* Allow the images container to grow */
         }
 
         /* Responsive name images */
@@ -62,7 +64,8 @@
             height: auto;
             border: 3px solid black;
             border-radius: 3px;
-            flex-shrink: 0; /* Prevents shrinking */
+            flex-shrink: 1; /* Allow images to shrink when needed */
+            max-width: 100%; /* Ensure images do not exceed their container */
         }
 
         /* Banner fixes */

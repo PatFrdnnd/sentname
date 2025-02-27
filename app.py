@@ -17,30 +17,40 @@ csp = {
 }
 Talisman(app, content_security_policy=csp)
 
-# Function to get all image files for a given letter
+# Function to get standard images for a letter
 def get_images_for_letter(letter):
-    # Assuming the images are stored in 'static/images'
-    image_folder = f"./static/images"
-    # List all files in the folder and filter the ones that match the pattern for the letter
+    image_folder = "./static/images"
     images = [f for f in os.listdir(image_folder) if f.startswith(letter) and f.endswith('.png')]
+    return images
+
+# Function to get AI-generated images for a letter
+def get_ai_images_for_letter(letter):
+    image_folder = "./static/images"
+    images = [f for f in os.listdir(image_folder) if f.startswith(letter) and f.endswith('_ai.png')]
     return images
 
 # Route for the homepage
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        name = request.form.get("name").lower()  # Get the name input and convert it to lowercase
+        name = request.form.get("name").lower()  # Get the name input
+        use_ai = request.form.get("use_ai")  # Check if AI checkbox is checked
         images = []
 
-        # Loop through each letter in the name and randomly pick an image
+        # Loop through each letter and get images based on AI selection
         for letter in name:
-            if letter.isalpha():  # Check if the character is a letter
-                available_images = get_images_for_letter(letter)
-                if available_images:  # If there are images for this letter
-                    random_image = random.choice(available_images)  # Randomly pick an image
+            if letter.isalpha():
+                if use_ai:  # If AI checkbox is checked, use AI images
+                    available_images = get_ai_images_for_letter(letter)
+                else:
+                    available_images = get_images_for_letter(letter)
+                
+                if available_images:
+                    random_image = random.choice(available_images)
                     images.append(f"/static/images/{random_image}")
 
         return render_template("index.html", images=images, name=name)
+
     return render_template("index.html", images=None)
 
 if __name__ == "__main__":

@@ -60,11 +60,17 @@
             cursor: pointer;
         }
 
-        label {
+        .ai-checkbox {
             display: flex;
             align-items: center;
-            font-size: 1.2rem;
+            font-size: 1.5rem; /* Make text larger */
             gap: 5px;
+            margin-left: 10px; /* Adds space between button and checkbox */
+        }
+
+        .ai-checkbox input {
+            width: 20px; /* Increase checkbox size */
+            height: 20px;
         }
 
         /* Image container to ensure images are in one row */
@@ -95,14 +101,14 @@
         <h1>Spell Your Name with Satellite Images</h1>
         <form method="POST">
             <input type="text" name="name" placeholder="Enter your name" required>
-            
-            <!-- Checkbox for AI images -->
-            <label>
+
+            <button type="submit">Submit</button>
+
+            <!-- Checkbox for AI images (moved to the right and styled) -->
+            <label class="ai-checkbox">
                 <input type="checkbox" name="use_ai">
                 AI
             </label>
-
-            <button type="submit">Submit</button>
         </form>
     </div>
 

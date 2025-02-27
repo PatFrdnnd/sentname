@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spell Your Name with Aerial Imagery</title>
+    <title>Spell Your Name with Satellite Images</title>
     <style>
         * {
             margin: 0;
@@ -15,41 +15,29 @@
             font-family: Arial, sans-serif;
             text-align: center;
             width: 100%;
-            min-height: 100vh;
-            overflow-x: hidden;
+            height: 100vh;
+            overflow-x: hidden; /* Prevents horizontal scrolling */
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 5%;
+            justify-content: center; /* Adjusted for vertical centering */
         }
 
-        h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 5%;
-        }
-
-        /* Form styling */
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            gap: 5%;
-        }
-
+        /* Make form input box responsive */
         input[type="text"] {
-            width: 90%;
-            max-width: 600px;
-            padding: 1.5%;
-            font-size: clamp(1rem, 3vw, 1.5rem);
+            width: 80%; /* Increased width for mobile */
+            max-width: 400px; /* Limits expansion on larger screens */
+            padding: 15px;
+            font-size: 1.5rem;
             border: 2px solid #ccc;
             border-radius: 10px;
+            margin-bottom: 20px;
         }
 
+        /* Responsive button */
         button {
-            padding: 2% 5%;
-            font-size: clamp(1rem, 3vw, 1.5rem);
+            padding: 15px 30px;
+            font-size: 1.5rem;
             background-color: #0B6623;
             color: white;
             border: none;
@@ -57,45 +45,69 @@
             cursor: pointer;
         }
 
-        /* Image container */
+        /* Responsive image container */
         .name-images {
             display: flex;
+            flex-wrap: nowrap; /* Keep images in one row */
             justify-content: center;
-            gap: 2%;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            max-width: 100%;
-            margin-top: 5%;
+            gap: 10px;
+            width: 100%;
+            max-width: 100%; /* Full width */
+            margin: 20px 0;
         }
 
-        /* Image scaling */
+        /* Responsive name images */
         .name-images img {
-            width: clamp(50px, 8vw, 100px);
+            width: clamp(50px, 8vw, 100px); /* Ensures images scale but stay within limits */
             height: auto;
             border: 3px solid black;
             border-radius: 3px;
+            flex-shrink: 0; /* Prevents shrinking */
+        }
+
+        /* Banner fixes */
+        .banner-container {
+            width: 100%;
+            max-height: 100px; /* Prevent excessive height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .banner {
+            width: 100%;
+            height: auto;
+            max-height: 100px;
+            object-fit: contain;
         }
     </style>
 </head>
 <body>
 
-    <!-- Title -->
-    <h1>Spell Your Name with Aerial Imagery</h1>
+    <!-- Main content -->
+    <div>
+        <h1>Spell Your Name with Satellite Images</h1>
+        <form method="POST">
+            <input type="text" name="name" placeholder="Enter your name" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
-    <!-- Input form -->
-    <form method="POST">
-        <input type="text" name="name" placeholder="Enter your name" required>
-        <button type="submit">Submit</button>
-    </form>
-
-    <!-- Display images dynamically in one row -->
+    <!-- If images are submitted, display them -->
     {% if images %}
         <div class="name-images">
+            <h2>Here is your name from above:</h2>
             {% for img in images %}
                 <img src="{{ img }}" alt="Letter">
             {% endfor %}
         </div>
     {% endif %}
+
+    <!-- Banner at the bottom -->
+    <div class="banner-container">
+        <img src="/static/images/banner.png" alt="Banner" class="banner">
+    </div>
 
 </body>
 </html>
